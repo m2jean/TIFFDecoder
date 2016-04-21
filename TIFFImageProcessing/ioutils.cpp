@@ -3,8 +3,10 @@
 #include<fstream>
 
 unsigned short readshort(std::filebuf *fb, char bo) {
-	char s[2];
-	fb->sgetn(s, 2);
+	char ss[2];
+	fb->sgetn(ss, 2);
+	unsigned char *s;
+	s = (unsigned char *)ss;
 	if (bo == LITTLE_ENDIAN) {
 		return s[0] + (s[1] << 8);
 	}
@@ -15,8 +17,10 @@ unsigned short readshort(std::filebuf *fb, char bo) {
 }
 
 unsigned int readint(std::filebuf *fb, char bo) {
-	char s[4];
-	fb->sgetn(s, 4);
+	char ss[4];
+	fb->sgetn(ss, 4);
+	unsigned char *s;
+	s = (unsigned char *)ss;
 	if (bo == LITTLE_ENDIAN) {
 		return s[0] + (s[1] << 8) + (s[2] << 16) + (s[3] << 24);
 	}

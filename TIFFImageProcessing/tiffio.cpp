@@ -51,7 +51,7 @@ TIFF_FILE* tiff_read(const char* path) {
 	tfile->ifd_p = ifd_p;
 	while(true) {
 		ifd_p->entry_c = readshort(fb, bytord);
-		cout << ' ' << ifd_p->entry_c;
+		cout << " entry count:" << ifd_p->entry_c;
 	
 		ifd_p->ifd_entry_p = new IFD_ENTRY[ifd_p->entry_c];
 		for (int i = 0; i < ifd_p->entry_c;i++) {
@@ -60,6 +60,7 @@ TIFF_FILE* tiff_read(const char* path) {
 			ent->type = readshort(fb, bytord);
 			ent->value_c = readint(fb, bytord);
 			ent->value_off = readint(fb, bytord);
+			cout << endl << "id:" << ent->id << " type:" << ent->type << " value count:" << ent->value_c << " value offset:" << ent->value_off;
 		}
 		ifd_p->nx_ifd_off = readint(fb, bytord);
 		if (ifd_p->nx_ifd_off != 0) {
