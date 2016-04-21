@@ -4,7 +4,6 @@
 #define TIFFIO_H
 
 //field types
-const char IFD_TYPE_SIZE[] = { 1,1,2,4,8,1,1,2,4,8,4,8 };//in byte
 #define IFD_TYPE_BYTE		1
 #define IFD_TYPE_ASCII		2
 #define IFD_TYPE_SHORT		3
@@ -20,11 +19,13 @@ const char IFD_TYPE_SIZE[] = { 1,1,2,4,8,1,1,2,4,8,4,8 };//in byte
 //boundary
 #define IFD_TYPE_BOUND		13
 
+
 struct IFD_ENTRY {
-	unsigned short	id;
+	unsigned short	tag;
 	unsigned short	type;
 	unsigned int	value_c;
 	unsigned int	value_off	= 0;
+	unsigned char*	values		= 0;
 };
 
 struct IFD {
