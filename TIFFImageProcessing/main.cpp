@@ -1,5 +1,5 @@
 #include"tiffio.h"
 
 int main() {
-	tiff_delete(tiff_read("D:\\Program Files (x86)\\GnuWin32\\test\\girl.tiff"));
+	tiff_delete(tiff_read("C:\\Users\\¾¸\\Desktop\\5.2.10.tiff"));
 }

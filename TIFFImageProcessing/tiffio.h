@@ -24,7 +24,7 @@ struct IFD_ENTRY {
 	unsigned short	tag;
 	unsigned short	type;
 	unsigned int	value_c;
-	unsigned int	value_off	= 0;
+	unsigned char	value_off[4] = { 0,0,0,0 };
 	unsigned char*	values		= 0;
 };
 
