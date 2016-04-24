@@ -91,10 +91,12 @@ struct TIFF_IMAGE {
 	unsigned int strip_bytes_c = 0;
 	//sample
 	unsigned char sample_per_pix	= 0;
-	unsigned char bits_per_sample	= 0;
+	unsigned char *bits_per_sample	= 0;
 	//mischevious
 	unsigned char subfile_type = 0;
 	unsigned char plannar_conf	= 1;
+
+	unsigned char *image;
 
 	TIFF_IMAGE* nx_image;
 };
@@ -109,5 +111,7 @@ struct TIFF_FILE {
 
 TIFF_FILE* tiff_read(const char* path);
 void tiff_delete(TIFF_FILE *tiff);
+unsigned short get_bits_per_pixel(TIFF_IMAGE *img_p);
+unsigned int get_grayscale_pixel(TIFF_IMAGE *img_p, unsigned int x, unsigned int y);
 
 #endif // !TIFFIO_H
